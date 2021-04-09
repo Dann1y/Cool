@@ -1,0 +1,76 @@
+Arguments: 
+  /opt/homebrew/Cellar/node/15.12.0/bin/node /opt/homebrew/Cellar/yarn/1.22.10/libexec/bin/yarn.js
+
+PATH: 
+  /opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  15.12.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@prisma%2fclient: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (/opt/homebrew/Cellar/yarn/1.22.10/libexec/lib/cli.js:141376:19)
+      at Object.onceWrapper (node:events:475:28)
+      at ClientRequest.emit (node:events:369:20)
+      at TLSSocket.emitRequestTimeout (node:_http_client:780:9)
+      at Object.onceWrapper (node:events:475:28)
+      at TLSSocket.emit (node:events:381:22)
+      at TLSSocket.Socket._onTimeout (node:net:480:8)
+      at listOnTimeout (node:internal/timers:557:17)
+      at processTimers (node:internal/timers:500:7)
+
+npm manifest: 
+  {
+    "name": "graphql-auth",
+    "license": "MIT",
+    "scripts": {
+      "dev": "ts-node-dev --no-notify --respawn --transpile-only src/server",
+      "start": "node dist/server",
+      "clean": "rm -rf dist",
+      "build": "npm -s run clean && npm -s run generate && tsc",
+      "generate": "npm -s run generate:prisma && npm -s run generate:nexus",
+      "generate:prisma": "prisma generate",
+      "generate:nexus": "ts-node --transpile-only src/schema"
+    },
+    "dependencies": {
+      "@prisma/client": "2.20.1",
+      "apollo-server": "2.22.2",
+      "bcryptjs": "2.4.3",
+      "graphql": "15.5.0",
+      "graphql-iso-date": "3.6.1",
+      "graphql-middleware": "6.0.7",
+      "graphql-shield": "7.5.0",
+      "jsonwebtoken": "8.5.1",
+      "nexus": "1.0.0"
+    },
+    "devDependencies": {
+      "@types/bcryptjs": "2.4.2",
+      "@types/graphql-iso-date": "3.4.0",
+      "@types/jsonwebtoken": "8.5.1",
+      "@types/node": "12.20.7",
+      "prisma": "2.20.1",
+      "ts-node": "9.1.1",
+      "ts-node-dev": "1.1.6",
+      "typescript": "4.2.4"
+    },
+    "prettier": {
+      "singleQuote": true,
+      "semi": false,
+      "trailingComma": "all"
+    },
+    "engines": {
+      "node": ">=10.0.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
